@@ -10,6 +10,8 @@
     <modules>
         <module>zc_common</module>
         <module>zc_base</module>
+        <module>zc_recruit</module>
+        <module>zc_qa</module>
     </modules>
     <packaging>pom</packaging>
 
