@@ -2,10 +2,14 @@ package com.znlccy.recruit.controller;
 
 import com.znlccy.recruit.pojo.Enterprise;
 import com.znlccy.recruit.service.EnterpriseService;
+import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author: znlccy
@@ -74,11 +78,23 @@ public class EnterpriseController {
         return new Result(true, StatusCode.OK, "删除成功");
     }
 
-    public Result findSearch() {
-        return new Result(true, StatusCode.OK, "查询成功");
+    /**
+     * 多条件查找企业
+     * @return
+     */
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public Result findSearch(@RequestBody Enterprise enterprise) {
+        List<Enterprise> list = enterpriseService.findSearch(enterprise);
+        return new Result(true, StatusCode.OK, "查询成功", list);
     }
 
-    public Result pageQuery() {
-        return new Result(true, StatusCode.OK,"查询成功");
+    /**
+     * 分页查找企业
+     * @return
+     */
+    @RequestMapping(value = "/search/{page}/{size}", method = RequestMethod.POST)
+    public Result pageQuery(@RequestBody Enterprise enterprise, @PathVariable int page, @PathVariable int size) {
+        Page<Enterprise> enterprisePage = enterpriseService.pageQuery(enterprise, page, size);
+        return new Result(true, StatusCode.OK,"查询成功", new PageResult<Enterprise>(enterprisePage.getTotalElements(), enterprisePage.getContent()));
     }
 }

@@ -5,6 +5,8 @@ import com.znlccy.recruit.pojo.Enterprise;
 import com.znlccy.recruit.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import util.IdWorker;
@@ -14,6 +16,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -99,9 +102,36 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     @Override
     public List<Enterprise> findSearch(Enterprise enterprise) {
         return enterpriseDao.findAll(new Specification<Enterprise>() {
+
             @Override
             public Predicate toPredicate(Root<Enterprise> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                return null;
+                //创建接受多条件的数组
+                List<Predicate> list = new ArrayList<>();
+
+                //多条件添加
+                if (enterprise.getName() != null && !"".equals(enterprise.getName())) {
+                    Predicate name = cb.like(root.get("name").as(String.class), "%" + enterprise.getName() + "%");
+                    list.add(name);
+                }
+
+                if (enterprise.getAddress() != null && !"".equals(enterprise.getAddress())) {
+                    Predicate address = cb.like(root.get("address").as(String.class), "%" + enterprise.getAddress() + "%");
+                    list.add(address);
+                }
+
+                if (enterprise.getIsShot() != null && !"".equals(enterprise.getIsShot())) {
+                    Predicate isShot = cb.equal(root.get("isShot").as(String.class), enterprise.getIsShot());
+                    list.add(isShot);
+                }
+
+                if (enterprise.getSummary() != null && !"".equals(enterprise.getSummary())) {
+                    Predicate summary = cb.like(root.get("summary").as(String.class), "%" + enterprise.getSummary() + "%");
+                    list.add(summary);
+                }
+
+                Predicate[] predicates = new Predicate[list.size()];
+                predicates = list.toArray(predicates);
+                return cb.and(predicates);
             }
         });
     }
@@ -115,6 +145,39 @@ public class EnterpriseServiceImpl implements EnterpriseService {
      */
     @Override
     public Page<Enterprise> pageQuery(Enterprise enterprise, int page, int size) {
-        return null;
+
+        Pageable pageable = PageRequest.of(page -1, size);
+        return enterpriseDao.findAll(new Specification<Enterprise>() {
+            @Override
+            public Predicate toPredicate(Root<Enterprise> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                //创建接受多条件的数组
+                List<Predicate> list = new ArrayList<>();
+
+                //多条件添加
+                if (enterprise.getName() != null && !"".equals(enterprise.getName())) {
+                    Predicate name = cb.like(root.get("name").as(String.class), "%" + enterprise.getName() + "%");
+                    list.add(name);
+                }
+
+                if (enterprise.getAddress() != null && !"".equals(enterprise.getAddress())) {
+                    Predicate address = cb.like(root.get("address").as(String.class), "%" + enterprise.getAddress() + "%");
+                    list.add(address);
+                }
+
+                if (enterprise.getIsShot() != null && !"".equals(enterprise.getIsShot())) {
+                    Predicate isShot = cb.equal(root.get("isShot").as(String.class), enterprise.getIsShot());
+                    list.add(isShot);
+                }
+
+                if (enterprise.getSummary() != null && !"".equals(enterprise.getSummary())) {
+                    Predicate summary = cb.like(root.get("summary").as(String.class), "%" + enterprise.getSummary() + "%");
+                    list.add(summary);
+                }
+
+                Predicate[] predicates = new Predicate[list.size()];
+                predicates = list.toArray(predicates);
+                return cb.and(predicates);
+            }
+        }, pageable);
     }
 }
