@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zc_recruit" />
+        <module name="zc_base" />
+        <module name="zc_common" />
+        <module name="zc_qa" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="zc_base" options="-parameters" />
+      <module name="zc_common" options="-parameters" />
+      <module name="zc_qa" options="-parameters" />
+      <module name="zc_recruit" options="-parameters" />
+    </option>
+  </component>
+</project>

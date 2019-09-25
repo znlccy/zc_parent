@@ -1,6 +1,7 @@
 package com.znlccy.recruit.service;
 
 import com.znlccy.recruit.pojo.Recruit;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -19,4 +20,45 @@ public interface RecruitService {
     List<Recruit> findAll();
 
 
+    /**
+     * 查询单个招聘
+     * @param rid
+     * @return
+     */
+    Recruit findById(String rid);
+
+    /**
+     * 添加招聘信息
+     * @param recruit
+     */
+    void save(Recruit recruit);
+
+    /**
+     * 更新招聘
+     * @param recruit
+     * @param rid
+     */
+    void update(Recruit recruit, String rid);
+
+    /**
+     * 删除招聘
+     * @param rid
+     */
+    void deleteById(String rid);
+
+    /**
+     * 多条件查找招聘
+     * @param recruit
+     * @return
+     */
+    List<Recruit> findSearch(Recruit recruit);
+
+    /**
+     * 分页查找招聘
+     * @param recruit
+     * @param page
+     * @param size
+     * @return
+     */
+    Page<Recruit> pageQuery(Recruit recruit, int page, int size);
 }
