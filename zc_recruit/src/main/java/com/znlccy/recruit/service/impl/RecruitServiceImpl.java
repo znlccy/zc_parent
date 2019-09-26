@@ -1,6 +1,7 @@
 package com.znlccy.recruit.service.impl;
 
 import com.znlccy.recruit.dao.RecruitDao;
+import com.znlccy.recruit.pojo.Enterprise;
 import com.znlccy.recruit.pojo.Recruit;
 import com.znlccy.recruit.service.RecruitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,7 +98,7 @@ public class RecruitServiceImpl implements RecruitService {
             public Predicate toPredicate(Root<Recruit> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> list = new ArrayList<>();
 
-                if (recruit.getAddress() != null && !"".equals(recruit.getAddress())) {
+                /*if (recruit.getAddress() != null && !"".equals(recruit.getAddress())) {
                     Predicate address = cb.like(root.get("address").as(String.class), "%" + recruit.getAddress() + "%");
                     list.add(address);
                 }
@@ -115,7 +116,7 @@ public class RecruitServiceImpl implements RecruitService {
                 if (recruit.getDescription() != null && !"".equals(recruit.getDescription())) {
                     Predicate description = cb.like(root.get("description").as(String.class), "%" + recruit.getDescription() + "%");
                     list.add(description);
-                }
+                }*/
 
                 if (recruit.getJobName() != null && !"".equals(recruit.getJobName())) {
                     Predicate jobName = cb.like(root.get("jobName").as(String.class), "%" + recruit.getJobName() + "%");
@@ -144,7 +145,7 @@ public class RecruitServiceImpl implements RecruitService {
             public Predicate toPredicate(Root<Recruit> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> list = new ArrayList<>();
 
-                if (recruit.getAddress() != null && !"".equals(recruit.getAddress())) {
+                /*if (recruit.getAddress() != null && !"".equals(recruit.getAddress())) {
                     Predicate address = cb.like(root.get("address").as(String.class), "%" + recruit.getAddress() + "%");
                     list.add(address);
                 }
@@ -162,7 +163,7 @@ public class RecruitServiceImpl implements RecruitService {
                 if (recruit.getDescription() != null && !"".equals(recruit.getDescription())) {
                     Predicate description = cb.like(root.get("description").as(String.class), "%" + recruit.getDescription() + "%");
                     list.add(description);
-                }
+                }*/
 
                 if (recruit.getJobName() != null && !"".equals(recruit.getJobName())) {
                     Predicate jobName = cb.like(root.get("jobName").as(String.class), "%" + recruit.getJobName() + "%");

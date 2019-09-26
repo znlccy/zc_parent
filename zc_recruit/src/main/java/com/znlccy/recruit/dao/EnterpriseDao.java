@@ -15,5 +15,10 @@ import java.util.List;
  */
 public interface EnterpriseDao extends JpaRepository<Enterprise,String>, JpaSpecificationExecutor<Enterprise> {
 
+    /**
+     * 查找热门企业
+     * @param isShot
+     * @return
+     */
     List<Enterprise> findByIsShot(String isShot);
 }

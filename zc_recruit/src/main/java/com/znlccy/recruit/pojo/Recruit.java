@@ -3,12 +3,12 @@ package com.znlccy.recruit.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author: znlccy
@@ -21,6 +21,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Recruit implements Serializable {
 
     /**
@@ -36,63 +37,58 @@ public class Recruit implements Serializable {
 
     /**
      * 薪资范围
-     */
+     *//*
     private String salary;
 
-    /**
+    *//**
      * 经验要求
-     */
+     *//*
     private String condition;
 
-    /**
+    *//**
      * 学历要求
-     */
+     *//*
     private String education;
 
-    /**
+    *//**
      * 任职方式
-     */
+     *//*
     private String type;
 
-    /**
+    *//**
      * 办公地址
-     */
+     *//*
     private String address;
 
-    /**
+    *//**
      * 企业ID
-     */
+     *//*
     private String eid;
 
-    /**
+    *//**
      * 发布状态
-     */
+     *//*
     private String state;
 
-    /**
+    *//**
      * 原网址
-     */
+     *//*
     private String url;
 
-    /**
+    *//**
      * 标签
-     */
+     *//*
     private String label;
 
-    /**
+    *//**
      * 职业描述
      *
-     */
+     *//*
     private String description;
 
-    /**
+    *//**
      * 职位要求
-     */
-    private String content;
-
-    /**
-     * 发布时间
-     */
-    private Date createTime;
+     *//*
+    private String content;*/
 
 }
