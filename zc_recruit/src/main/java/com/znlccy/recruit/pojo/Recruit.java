@@ -49,47 +49,52 @@ public class Recruit implements Serializable {
     /**
      * 学历要求
      */
-    /*private String education;*/
+    private String education;
 
     /**
      * 任职方式
      */
-    /*private String type;
+    private String type;
 
-    *//**
+   /**
      * 办公地址
-     *//*
+     */
     private String address;
 
-    *//**
+    /**
      * 企业ID
-     *//*
+     */
     private String eid;
 
-    *//**
+    /**
      * 发布状态
-     *//*
+     */
     private String state;
 
-    *//**
+    /**
      * 原网址
-     *//*
+     */
     private String url;
 
-    *//**
+    /**
      * 标签
-     *//*
+     */
     private String label;
 
-    *//**
+    /**
      * 职业描述
      *
-     *//*
+     */
     private String description;
 
-    *//**
+    /**
      * 职位要求
-     *//*
-    private String content;*/
+     */
+    private String content;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
 }

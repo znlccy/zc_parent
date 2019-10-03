@@ -14,6 +14,18 @@ import java.util.List;
 public interface RecruitService {
 
     /**
+     * 推荐职位
+     * @return
+     */
+    List<Recruit> recommend();
+
+    /**
+     * 最新职位
+     * @return
+     */
+    List<Recruit> newList();
+
+    /**
      * 查询所有招聘
      * @return
      */

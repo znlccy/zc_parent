@@ -26,6 +26,24 @@ public class RecruitController {
     private RecruitService recruitService;
 
     /**
+     * 推荐职位
+     * @return
+     */
+    @RequestMapping(value = "/search/recommend", method = RequestMethod.GET)
+    public Result recommend() {
+        return new Result(true, StatusCode.OK, "查询成功", recruitService.recommend());
+    }
+
+    /**
+     * 最新职位
+     * @return
+     */
+    @RequestMapping(value = "/search/new",method = RequestMethod.GET)
+    public Result newList() {
+        return new Result(true, StatusCode.OK, "查询成功", recruitService.newList());
+    }
+
+    /**
      * 查询所有招聘信息
      * @return
      */

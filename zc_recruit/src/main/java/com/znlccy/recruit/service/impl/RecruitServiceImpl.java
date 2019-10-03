@@ -38,6 +38,24 @@ public class RecruitServiceImpl implements RecruitService {
     private IdWorker idWorker;
 
     /**
+     * 推荐职位
+     * @return
+     */
+    @Override
+    public List<Recruit> recommend() {
+        return recruitDao.findTop6ByStateOrderByCreateTimeDesc("2");
+    }
+
+    /**
+     * 最新职位
+     * @return
+     */
+    @Override
+    public List<Recruit> newList() {
+        return recruitDao.findTop6ByStateNotOrderByCreateTimeDesc("0");
+    }
+
+    /**
      * 查询所有招聘
      * @return
      */

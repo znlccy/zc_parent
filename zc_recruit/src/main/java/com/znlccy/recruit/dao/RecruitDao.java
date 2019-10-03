@@ -20,12 +20,12 @@ public interface RecruitDao extends JpaRepository<Recruit,String>, JpaSpecificat
      * @param state
      * @return
      */
-    /*List<Recruit> findTop6ByStateOrderByCreateTimeDesc(String state);*/
+    List<Recruit> findTop6ByStateOrderByCreateTimeDesc(String state);
 
     /**
      * 最新职业
      * @param state
      * @return
      */
-    /*List<Recruit> findTop6ByStateNotOrderByCreateTimeDesc(String state);*/
+    List<Recruit> findTop6ByStateNotOrderByCreateTimeDesc(String state);
 }
