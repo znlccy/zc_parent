@@ -26,6 +26,16 @@ public class EnterpriseController {
     private EnterpriseService enterpriseService;
 
     /**
+     * 热门企业
+     * @return
+     */
+    @RequestMapping(value = "/search/hot", method = RequestMethod.GET)
+    public Result hotList() {
+        List<Enterprise> hotList = enterpriseService.hotList("1");
+        return new Result(true, StatusCode.OK, "查询成功", hotList);
+    }
+
+    /**
      * 查询所有企业
      * @return
      */

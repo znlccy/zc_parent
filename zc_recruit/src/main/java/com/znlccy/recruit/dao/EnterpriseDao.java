@@ -21,4 +21,6 @@ public interface EnterpriseDao extends JpaRepository<Enterprise,String>, JpaSpec
      * @return
      */
     List<Enterprise> findByIsShot(String isShot);
+
+//    List<Enterprise> findBy
 }

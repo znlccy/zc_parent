@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author: znlccy
@@ -37,23 +38,23 @@ public class Recruit implements Serializable {
 
     /**
      * 薪资范围
-     *//*
+     */
     private String salary;
 
-    *//**
+    /**
      * 经验要求
-     *//*
+     */
     private String condition;
 
-    *//**
+    /**
      * 学历要求
-     *//*
-    private String education;
+     */
+    /*private String education;*/
 
-    *//**
+    /**
      * 任职方式
-     *//*
-    private String type;
+     */
+    /*private String type;
 
     *//**
      * 办公地址

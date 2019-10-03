@@ -41,7 +41,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
      * @return
      */
     @Override
-    public List<Enterprise> findByIsShot(String isShot) {
+    public List<Enterprise> hotList(String isShot) {
         return enterpriseDao.findByIsShot(isShot);
     }
 

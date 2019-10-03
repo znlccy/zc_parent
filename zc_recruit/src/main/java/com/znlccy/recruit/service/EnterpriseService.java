@@ -18,7 +18,7 @@ public interface EnterpriseService {
      * @param isShot
      * @return
      */
-    List<Enterprise> findByIsShot(String isShot);
+    List<Enterprise> hotList(String isShot);
 
     /**
      * 查询所有企业
