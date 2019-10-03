@@ -18,10 +18,13 @@ import java.util.List;
 public class PageResult <T>{
 
     /**
-     * fen
+     * 返回总数量
      */
     private long total;
 
+    /**
+     * 返回函数
+     */
     private List<T> rows;
 
 }
